@@ -8,7 +8,7 @@ int main()
 {
  ulli n,ans;
 cin>>n;
-for(int i=0;i<n;i++)
+for(int i=n;i<n;i++)
 {
     ans = pow(2,i+1);
     ans=ans%1000000007;

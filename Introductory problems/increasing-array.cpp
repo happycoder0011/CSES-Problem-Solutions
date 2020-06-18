@@ -7,24 +7,20 @@ using namespace std;
 
 int main()
 {
-  unsigned long long  int n,i,m=0;
-   cin>>n;
-  unsigned long long  int a[n];
-   for( i=0;i<n;i++)
-   {
-      cin>>a[i];
-   }
-   for(i=0;i<n;i++)
-   {
-      if(a[i+1]<a[i])
-       {
-         unsigned long long   int c=a[i]-a[i+1];
-           m=m+c;
-           a[i+1]=a[i+1]+c;
-       }
-   }
-   cout<<m;
-
+ int n,m;
+ cin>>n;
+ int a[n];
+ for(int i=0;i<n;i++)
+ {
+     cin>>a[i];
+ }
+ m=0;
+ for(int i=1;i<n;i++)
+ {
+     if(a[i]<a[i-1])
+        m=m+a[i-1]-a[i];
+ }
+ cout<<m<<endl;
 
     return 0;
 }
