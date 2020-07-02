@@ -8,29 +8,21 @@ int main()
 ios::sync_with_stdio(0);
 cin.tie(0);
 
-ulli t;
-cin>>t;
-for(i,0,t)
+int n;
+cin>>n;
+int a[n]={0},x,y;
+for(i,0,n)
 {
-    ulli x,y;
     cin>>x>>y;
-
-    ulli m=max(x,y);
-    if(m%2==0)
+    for(j,x-1,y)
     {
-        if(x>=y)
-        {
-          ulli n=min(x,y)-1;
-        }
-        else
-        {
-
-        }
+        a[j]++;
     }
-
-
-    cout<<pow(m,2)-n<<endl;
-
 }
+int *l;
+l=max_element(a,a+n);
+cout<<l;
+
 
 return 0;}
+

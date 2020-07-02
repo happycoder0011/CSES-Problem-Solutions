@@ -8,29 +8,23 @@ int main()
 ios::sync_with_stdio(0);
 cin.tie(0);
 
-ulli t;
-cin>>t;
-for(i,0,t)
+ulli n,x;
+cin>>n>>x;
+ulli a[n];
+for(i,0,n)
 {
-    ulli x,y;
-    cin>>x>>y;
-
-    ulli m=max(x,y);
-    if(m%2==0)
+    cin>>a[i];
+}
+for(i,0,n)
+{
+    for(j,i+1,n)
     {
-        if(x>=y)
+        if(a[i]+a[j]==x)
         {
-          ulli n=min(x,y)-1;
-        }
-        else
-        {
-
+            cout<<i+1<<" "<<j+1;
+            return 0;
         }
     }
-
-
-    cout<<pow(m,2)-n<<endl;
-
 }
-
+cout<<"IMPOSSIBLE";
 return 0;}
