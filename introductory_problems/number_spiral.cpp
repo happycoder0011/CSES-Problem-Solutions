@@ -12,25 +12,35 @@ ulli t;
 cin>>t;
 for(i,0,t)
 {
-    ulli x,y;
+    ulli x,y,ans;
     cin>>x>>y;
 
-    ulli m=max(x,y);
+    ulli m=max(x,y),m2;
+    m2=m*m;
     if(m%2==0)
     {
-        if(x>=y)
+        if(m==x)
         {
-          ulli n=min(x,y)-1;
+          ans = m2+1-y;
         }
         else
         {
-
+         ans = m2-((m-1)*2)+x-1;
+        }
+    }
+    else
+    {
+        if(m==x)
+        {
+          ans = m2-((m-1)*2)+y-1;
+        }
+        else
+        {
+         ans =m2+1-x;
         }
     }
 
-
-    cout<<pow(m,2)-n<<endl;
-
+cout<<ans<<endl;
 }
 
 return 0;}
