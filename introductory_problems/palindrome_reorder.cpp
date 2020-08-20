@@ -6,38 +6,61 @@ int main()
 {
 ios::sync_with_stdio(0);
 cin.tie(0);
-char str[1000000];
-int A[26]={0},a[26]={0},j;
+string str;
+int A[26]={0},j;
 cin>>str;
-for(int i=0;i<strlen(str);i++)
+for(int i=0;i<str.size();i++)
 {
-    if(str[i]<96)
-    {
+
     j=str[i]-65;
     A[j]++;
-    }
-    else
-    {
-    j=str[i]-97;
-    a[j]++;
-    }
-    }
-sort(a,a+26,greater<int>());
-sort(A,A+26,greater<int>());
 
-if(a[0]==0 || A[0]==0 || (A[0]==1 && A[1]==0))
-    cout<<"True"<<endl;
-else
-    cout<<"False"<<endl;
-/*for(int i=0;i<26;i++)
-{
-   cout<<a[i]<<" ";
 }
-cout<<endl;
+char y;
+int c=0,i;
+for( i=0;i<26;i++)
+{
+   if(A[i]%2!=0 && c==0)
+   {
+       c=1;
+       y=i+65;
+   }
+   else
+    if(c==1 &&  A[i]%2!=0)
+    {
+        break;
+    }
+}
+if(i!=26)
+{
+    cout<<"NO SOLUTION";
+    return 0;
+}
+string ans;
 for(int i=0;i<26;i++)
 {
-   cout<<A[i]<<" ";
-}*/
 
 
+    j=A[i]/2;
+    char d=i+65;
+    while(j>0)
+    {
+        ans = ans+d;
+        j--;
+    }
+}
+ans = ans + y;
+for(int i=25;i>=0;i--)
+{
+
+
+    j=A[i]/2;
+    char d=i+65;
+    while(j>0)
+    {
+        ans = ans +d;
+        j--;
+    }
+}
+cout<<ans;
 return 0;}
