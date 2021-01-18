@@ -14,22 +14,14 @@ for(int i=0;i<n;i++)
     cin>>c[i];
 }
 
-vector<long long> dp(x+1,INT_MAX);
-dp[0]=0;
-
+int dp[x+1]={0};
+dp[0]=1;
 for(int j=1;j<=x;j++)
 {
     for(int k=0;k<n;k++)
     {   if(c[k]>j) continue;
-        dp[j] = min(dp[j],1+dp[j-c[k]]);
+        dp[j] = (dp[j]+dp[j-c[k]])%1000000007;
     }
-
 }
-if(dp[x]==INT_MAX)
-{cout<<-1;}
-else
-{
-
-cout<<dp[x];
-}
+cout<<dp[x]%1000000007;
 return 0;}
